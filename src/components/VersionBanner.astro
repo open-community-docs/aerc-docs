@@ -1,0 +1,16 @@
+---
+/**
+ * Displays the current aerc version these docs track.
+ * Rendered at the top of reference pages.
+ */
+interface Props {
+  version?: string;
+}
+
+const { version = '0.21.0' } = Astro.props;
+---
+
+<div class="version-banner">
+  These docs track <strong>aerc {version}</strong> —
+  <a href="https://git.sr.ht/~rjarry/aerc">view upstream source</a>
+</div>

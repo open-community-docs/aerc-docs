@@ -1,0 +1,36 @@
+---
+title: aerc docs
+description: Community documentation for the aerc email client
+template: splash
+hero:
+  tagline: Comprehensive, searchable, community-driven documentation for the aerc email client.
+  actions:
+    - text: Get Started
+      link: /getting-started/installation/
+      icon: right-arrow
+      variant: primary
+    - text: Reference (Man Pages)
+      link: /reference/aerc.1/
+      icon: document
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+<CardGrid stagger>
+	<Card title="Getting Started" icon="rocket">
+		Install aerc, configure your first account, and start reading email in
+		minutes. Step-by-step guides for every platform.
+	</Card>
+	<Card title="Provider Guides" icon="email">
+		Ready-to-use configurations for Gmail, Fastmail, Outlook, ProtonMail,
+		PrivateEmail, and more.
+	</Card>
+	<Card title="Reference" icon="open-book">
+		All 16 aerc man pages — auto-synced from upstream, fully searchable,
+		and cross-linked.
+	</Card>
+	<Card title="Recipes" icon="puzzle">
+		Community-contributed configuration snippets for notifications,
+		threading, HTML rendering, keybindings, and more.
+	</Card>
+</CardGrid>

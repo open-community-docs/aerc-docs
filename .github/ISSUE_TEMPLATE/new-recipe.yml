@@ -1,0 +1,35 @@
+name: New Recipe Request
+description: Suggest a new recipe for the aerc docs
+labels: ["recipe", "content"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a recipe! Recipes are short, focused configuration snippets that solve a specific problem.
+  - type: input
+    id: title
+    attributes:
+      label: Recipe title
+      description: A short title for the recipe
+      placeholder: "e.g., Auto-archive old messages"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What problem does this recipe solve?
+      placeholder: Describe what you're trying to accomplish
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Solution (if known)
+      description: If you already have a working configuration, paste it here
+      render: ini
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Any relevant details — aerc version, backend, OS, etc.

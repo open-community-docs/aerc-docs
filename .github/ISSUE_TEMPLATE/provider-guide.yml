@@ -1,0 +1,33 @@
+name: Provider Guide Request
+description: Request a setup guide for an email provider
+labels: ["provider", "content"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Help us cover more email providers! If you've got aerc working with a provider we don't document, consider submitting a PR with the guide.
+  - type: input
+    id: provider
+    attributes:
+      label: Email provider
+      description: Name of the email provider
+      placeholder: "e.g., Zoho Mail, Migadu, Mailbox.org"
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Server details
+      description: IMAP/SMTP server addresses, ports, and any special requirements
+      placeholder: |
+        IMAP: imap.provider.com:993 (TLS)
+        SMTP: smtp.provider.com:465 (TLS)
+        Auth: App password required
+  - type: checkboxes
+    id: working
+    attributes:
+      label: Do you have a working configuration?
+      options:
+        - label: "Yes — I can submit a PR with the guide"
+        - label: "Partially — I have some config but need help"
+        - label: "No — I'm requesting someone else write it"

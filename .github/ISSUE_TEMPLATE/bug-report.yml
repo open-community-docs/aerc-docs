@@ -1,0 +1,36 @@
+name: Bug Report
+description: Report an issue with the documentation site
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Found a problem with the docs? Let us know. For issues with aerc itself, please report to the [aerc mailing list](https://lists.sr.ht/~rjarry/aerc-devel).
+  - type: dropdown
+    id: type
+    attributes:
+      label: Issue type
+      options:
+        - Incorrect information
+        - Broken link
+        - Missing content
+        - Formatting / rendering issue
+        - Search not finding expected content
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: page
+    attributes:
+      label: Affected page
+      description: URL or path of the page with the issue
+      placeholder: "e.g., /reference/aerc-config.5/"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What's wrong and what should it say instead?
+    validations:
+      required: true

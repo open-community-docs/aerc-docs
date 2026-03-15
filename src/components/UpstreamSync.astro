@@ -1,0 +1,21 @@
+---
+/**
+ * Banner indicating this page is auto-generated from upstream scdoc sources.
+ * Directs contributors to the aerc mailing list for changes.
+ */
+interface Props {
+  sourcePath?: string;
+}
+
+const { sourcePath } = Astro.props;
+const sourceUrl = sourcePath
+  ? `https://git.sr.ht/~rjarry/aerc/tree/master/item/doc/${sourcePath}`
+  : 'https://git.sr.ht/~rjarry/aerc/tree/master/item/doc';
+---
+
+<div class="auto-generated-banner">
+  This page is auto-generated from the
+  <a href={sourceUrl}>upstream scdoc source</a>.
+  To suggest changes, submit patches to the
+  <a href="https://lists.sr.ht/~rjarry/aerc-devel">aerc-devel mailing list</a>.
+</div>

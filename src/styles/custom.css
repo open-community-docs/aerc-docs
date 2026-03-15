@@ -1,0 +1,65 @@
+/* aerc docs custom styles */
+
+/* Terminal-friendly monospace emphasis for config options */
+:root {
+	--sl-font-system-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
+}
+
+/* Auto-generated reference page banner */
+.auto-generated-banner {
+	background: var(--sl-color-blue-low);
+	border: 1px solid var(--sl-color-blue);
+	border-radius: 0.5rem;
+	padding: 0.75rem 1rem;
+	margin-bottom: 1.5rem;
+	font-size: 0.875rem;
+}
+
+.auto-generated-banner a {
+	color: var(--sl-color-blue-high);
+}
+
+/* Version banner */
+.version-banner {
+	background: var(--sl-color-green-low);
+	border: 1px solid var(--sl-color-green);
+	border-radius: 0.5rem;
+	padding: 0.5rem 1rem;
+	margin-bottom: 1rem;
+	font-size: 0.875rem;
+	text-align: center;
+}
+
+/* Config option styling */
+.config-option {
+	border-left: 3px solid var(--sl-color-accent);
+	padding-left: 1rem;
+	margin-bottom: 1.5rem;
+}
+
+.config-option .option-name {
+	font-family: var(--sl-font-system-mono);
+	font-weight: bold;
+	font-size: 0.95rem;
+}
+
+.config-option .option-default {
+	color: var(--sl-color-gray-3);
+	font-size: 0.85rem;
+}
+
+/* Definition list styling for man page content */
+.sl-markdown-content dl {
+	margin: 1rem 0;
+}
+
+.sl-markdown-content dt {
+	font-weight: bold;
+	margin-top: 1rem;
+	font-family: var(--sl-font-system-mono);
+}
+
+.sl-markdown-content dd {
+	margin-left: 1.5rem;
+	margin-top: 0.25rem;
+}

@@ -1,0 +1,26 @@
+---
+/**
+ * Styled display for a configuration option with name, type, default value,
+ * and description.
+ */
+interface Props {
+  name: string;
+  type?: string;
+  default?: string;
+}
+
+const { name, type, default: defaultValue } = Astro.props;
+---
+
+<div class="config-option">
+  <div class="option-name">
+    <code>{name}</code>
+    {type && <span> = <em>{type}</em></span>}
+  </div>
+  {defaultValue && (
+    <div class="option-default">Default: <code>{defaultValue}</code></div>
+  )}
+  <div class="option-description">
+    <slot />
+  </div>
+</div>
