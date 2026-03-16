@@ -56,7 +56,7 @@ Reference pages are **auto-generated** from upstream aerc man pages. To suggest 
 ## Development Setup
 
 ```bash
-git clone https://github.com/aerc-docs/aerc-docs.git
+git clone https://github.com/open-community-docs/aerc-docs.git
 cd aerc-docs
 pnpm install
 

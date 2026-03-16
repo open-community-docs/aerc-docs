@@ -18,7 +18,7 @@ export default defineConfig({
 				{
 					icon: 'github',
 					label: 'GitHub',
-					href: 'https://github.com/aerc-docs/aerc-docs',
+					href: 'https://github.com/open-community-docs/aerc-docs',
 				},
 			],
 			sidebar: [
@@ -52,7 +52,7 @@ export default defineConfig({
 				},
 			],
 			editLink: {
-				baseUrl: 'https://github.com/aerc-docs/aerc-docs/edit/main/',
+				baseUrl: 'https://github.com/open-community-docs/aerc-docs/edit/main/',
 			},
 			customCss: ['./src/styles/custom.css'],
 			head: [
