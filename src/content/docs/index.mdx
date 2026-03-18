@@ -17,20 +17,47 @@ hero:
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
 <CardGrid stagger>
-	<Card title="Getting Started" icon="rocket">
-		Install aerc, configure your first account, and start reading email in
-		minutes. Step-by-step guides for every platform.
-	</Card>
-	<Card title="Provider Guides" icon="email">
-		Ready-to-use configurations for Gmail, Fastmail, Outlook, ProtonMail,
-		PrivateEmail, and more.
-	</Card>
-	<Card title="Reference" icon="open-book">
-		All 16 aerc man pages — auto-synced from upstream, fully searchable,
-		and cross-linked.
-	</Card>
-	<Card title="Recipes" icon="puzzle">
-		Community-contributed configuration snippets for notifications,
-		threading, HTML rendering, keybindings, and more.
-	</Card>
+	<a href="/getting-started/installation/" style="text-decoration: none; color: inherit;">
+		<Card title="Getting Started" icon="rocket">
+			Install aerc, configure your first account, and start reading email in
+			minutes. Step-by-step guides for every platform.
+		</Card>
+	</a>
+	<a href="/providers/" style="text-decoration: none; color: inherit;">
+		<Card title="Provider Guides" icon="email">
+			Ready-to-use configurations for Gmail, Fastmail, Outlook, ProtonMail,
+			PrivateEmail, and more.
+		</Card>
+	</a>
+	<a href="/reference/aerc.1/" style="text-decoration: none; color: inherit;">
+		<Card title="Reference" icon="open-book">
+			All 16 aerc man pages — auto-synced from upstream, fully searchable,
+			and cross-linked.
+		</Card>
+	</a>
+	<a href="/recipes/" style="text-decoration: none; color: inherit;">
+		<Card title="Recipes" icon="puzzle">
+			Community-contributed configuration snippets for notifications,
+			threading, HTML rendering, keybindings, and more.
+		</Card>
+	</a>
 </CardGrid>
+
+<style>{`
+	.card-grid > a:nth-child(1) .card {
+		--sl-card-border: var(--sl-color-orange);
+		--sl-card-bg: var(--sl-color-orange-low);
+	}
+	.card-grid > a:nth-child(2) .card {
+		--sl-card-border: var(--sl-color-purple);
+		--sl-card-bg: var(--sl-color-purple-low);
+	}
+	.card-grid > a:nth-child(3) .card {
+		--sl-card-border: var(--sl-color-green);
+		--sl-card-bg: var(--sl-color-green-low);
+	}
+	.card-grid > a:nth-child(4) .card {
+		--sl-card-border: var(--sl-color-red);
+		--sl-card-bg: var(--sl-color-red-low);
+	}
+`}</style>
