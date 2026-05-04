@@ -7,12 +7,7 @@ sidebar:
   badge:
     text: man
     variant: note
-# Auto-generated from upstream aerc 0.21.0
 ---
-
-:::tip[aerc 0.21.0]
-This reference tracks **aerc 0.21.0**. [View upstream source](https://git.sr.ht/~rjarry/aerc/tree/master/item/doc).
-:::
 
 :::note[Auto-generated reference]
 This page is auto-generated from the upstream aerc man pages. To suggest changes, submit patches to the [aerc mailing list](https://lists.sr.ht/~rjarry/aerc-devel).
@@ -677,8 +672,8 @@ These options are configured in the **[ui]** section of *aerc.conf*.
 
 **show-thread-context** = *true*|*false*
 
-> Enable showing of thread context. Note: this is not supported by all
-> backends.
+> Enable showing of thread context. Note: this is currently only supported
+> by the notmuch backend.
 
 > Default: *false*
 
