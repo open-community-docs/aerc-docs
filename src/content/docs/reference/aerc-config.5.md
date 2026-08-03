@@ -7,12 +7,7 @@ sidebar:
   badge:
     text: man
     variant: note
-# Auto-generated from upstream aerc 0.21.0
 ---
-
-:::tip[aerc 0.21.0]
-This reference tracks **aerc 0.21.0**. [View upstream source](https://git.sr.ht/~rjarry/aerc/tree/master/item/doc).
-:::
 
 :::note[Auto-generated reference]
 This page is auto-generated from the upstream aerc man pages. To suggest changes, submit patches to the [aerc mailing list](https://lists.sr.ht/~rjarry/aerc-devel).
@@ -129,13 +124,17 @@ These options are configured in the **[general]** section of *aerc.conf*.
 
 > Default: *xterm-256color*
 
-**enable-osc8** = *true*|*false*
+**inherit-host-tty-features** = *true*|*false*
 
-> Enable the embedded terminal to output OSC 8 (hyperlinks) escape
-> sequences. Not all terminal emulators handle OSC 8 sequences properly
-> and can produce confusing results, disable this setting if that occurs.
+> Enable inheriting host terminal features in the embedded terminal. When
+> enabled, the embedded terminal negotiates advanced keyboard protocols
+> with child processes, allowing disambiguation of modified keys (e.g.
+> Ctrl+Backspace is no longer aliased to C-h). Also enables hyperlink
+> support (OSC 8), clipboard integration (OSC 52), inline image display,
+> and foreground/background color queries (OSC 10/11) for child processes.
+> Requires a compatible host terminal.
 
-> Default: *false*
+> Default: *true*
 
 **enable-quake-mode** = *true*|*false*
 
@@ -464,6 +463,31 @@ These options are configured in the **[ui]** section of *aerc.conf*.
 
 > Default: *1*
 
+**keyhint** = *true*|*false*
+
+> When a key is pressed that starts a multi-key binding, show a popup
+> listing possible continuations. The popup uses annotations from
+> *binds.conf* as descriptions. Bindings without annotations will show
+> their command text instead.
+
+> Default: *false*
+
+**keyhint-delay** = *<duration>*
+
+> The delay after pressing a multi-key binding prefix before the
+> keyhint popup is displayed. This avoids flickering during fast key
+> sequences. Only applies when **keyhint** is enabled.
+
+> Default: *200ms*
+
+**keyhint-position** = *bottom-left*|*bottom-center*|*bottom-right*
+
+> Position of the keyhint popup on screen. When left empty (default),
+> the position is auto-detected from the *[statusline]* column
+> containing *{{.PendingKeys}}*.
+
+> Default: *auto-detected*
+
 **border-char-vertical** = *"<char>"*
 
 > Set stylable character (via the **border** element) for vertical borders.
@@ -677,8 +701,8 @@ These options are configured in the **[ui]** section of *aerc.conf*.
 
 **show-thread-context** = *true*|*false*
 
-> Enable showing of thread context. Note: this is not supported by all
-> backends.
+> Enable showing of thread context. Note: this is currently only supported
+> by the notmuch backend.
 
 > Default: *false*
 
@@ -973,6 +997,23 @@ These options are configured in the **[viewer]** section of *aerc.conf*.
 > Specifies the pager to use when displaying emails. Note that some filters
 > may add ANSI escape sequences to add color to rendered emails, so you may
 > want to use a pager which supports ANSI.
+
+> The following variables are defined in the pager command environment:
+
+> **AERC_MIME_TYPE**
+  the part MIME type/subtype
+> **AERC_FORMAT**
+  the part content type format= parameter (e.g. format=flowed)
+> **AERC_FILENAME**
+  the attachment filename (if any)
+> **AERC_SUBJECT**
+  the message Subject header value
+> **AERC_FROM**
+  the message From header value
+> **AERC_STYLESET**
+  the path to the styleset used by aerc
+> **AERC_OSC8_URLS**
+  set to *1* when OSC 8 is enabled (see **enable-osc8**)
 
 > Default: *less -Rc*
 
@@ -1521,8 +1562,20 @@ message/rfc822=thunderbird
 
 ## HOOKS
 
-Hooks are triggered whenever the associated event occurs. The commands are run
-in a shell environment with information added to environment variables.
+Hooks are triggered whenever the associated event occurs. The commands are
+invoked with *sh -c command* including information added to environment
+variables. The following folders are prepended to the system **$PATH** to allow
+referencing filters from their name only.
+
+```
+${XDG_CONFIG_HOME:-~/.config}/aerc/hooks
+~/.local/libexec/aerc/hooks
+${XDG_DATA_HOME:-~/.local/share}/aerc/hooks
+$PREFIX/libexec/aerc/hooks
+$PREFIX/share/aerc/hooks
+/usr/libexec/aerc/hooks
+/usr/share/aerc/hooks
+```
 
 They are configured in the **[hooks]** section of aerc.conf.
 

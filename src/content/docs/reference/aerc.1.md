@@ -7,12 +7,7 @@ sidebar:
   badge:
     text: man
     variant: note
-# Auto-generated from upstream aerc 0.21.0
 ---
-
-:::tip[aerc 0.21.0]
-This reference tracks **aerc 0.21.0**. [View upstream source](https://git.sr.ht/~rjarry/aerc/tree/master/item/doc).
-:::
 
 :::note[Auto-generated reference]
 This page is auto-generated from the upstream aerc man pages. To suggest changes, submit patches to the [aerc mailing list](https://lists.sr.ht/~rjarry/aerc-devel).
@@ -530,7 +525,7 @@ message list, the message in the message viewer, etc).
 > *[PATCH X/Y]*), all marked messages will be sorted by subject to ensure
 > that the patches are applied in order.
 
-**:reply** [**-acfqs**] [**-T** *<template-file>*] [**-A** *<account>*] [**-e**|**-E**]
+**:reply** [**-acflqs**] [**-T** *<template-file>*] [**-A** *<account>*] [**-e**|**-E**]
 
 > Opens the composer to reply to the selected message.
 
@@ -540,6 +535,8 @@ message list, the message in the message viewer, etc).
 > the view tab.
 
 > **-f**: Reply to all addresses in From and Reply-To headers.
+
+> **-l**: Reply to the mailing list in **List-Post** header.
 
 > **-q**: Insert a quoted version of the selected message into the reply
 > editor. This defaults to what is set as **quoted-reply** in the **[templates]**
@@ -887,8 +884,9 @@ message list, the message in the message viewer, etc).
 
 **:toggle-thread-context**
 
-> Toggles between showing entire thread (when supported) and only showing
-> messages which match the current query / mailbox.
+> Toggles between showing entire thread and only showing messages which
+> match the current query / mailbox. Thread context is currently only
+> supported by the notmuch backend.
 
 **:view** [**-pb**]
 **:view-message** [**-pb**]
@@ -975,7 +973,7 @@ message list, the message in the message viewer, etc).
 
 > **-A**: Same as **-a** but saves all the named parts, not just attachments.
 
-**:mark** [**-atvVTsr**] *<filter>*
+**:mark** [**-atuUvVTsr**] *<filter>*
 
 > Marks messages. Commands will execute on all marked messages instead of the
 > highlighted one if applicable. The flags below can be combined as
@@ -996,6 +994,10 @@ message list, the message in the message viewer, etc).
 
 > **-r**: apply the filter to the To:, Cc:, Bcc: headers (does not work with
 > **-v** or **-V**)
+
+> **-u**: mark unread messages. Can be combined with other filters.
+
+> **-U**: mark read messages. Can be combined with other filters.
 
 **:unmark** [**-atTsr**] *<filter>*
 
