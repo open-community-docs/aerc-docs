@@ -7,12 +7,7 @@ sidebar:
   badge:
     text: man
     variant: note
-# Auto-generated from upstream aerc 0.21.0
 ---
-
-:::tip[aerc 0.21.0]
-This reference tracks **aerc 0.21.0**. [View upstream source](https://git.sr.ht/~rjarry/aerc/tree/master/item/doc).
-:::
 
 :::note[Auto-generated reference]
 This page is auto-generated from the upstream aerc man pages. To suggest changes, submit patches to the [aerc mailing list](https://lists.sr.ht/~rjarry/aerc-devel).
@@ -73,7 +68,8 @@ Note that many of these configuration options are written for you, such as
 > Specifies the maximum delay between reconnection attempts when the
 > connection is lost. Reconnection uses exponential backoff starting
 > from immediate retry, then increasing delays (approximately 1.8^n
-> seconds) until this maximum is reached.
+> seconds) until this maximum is reached. The backoff itself is capped at
+> one day so setting this maximum to a higher value has no effect.
 
 > Default: *30s*
 
@@ -143,7 +139,14 @@ Note that many of these configuration options are written for you, such as
 > *<display-folder-name>*=*<server-folder-name>*[\*]
 > mapping per line (similar key=value syntax as for the **query-map** in notmuch).
 > The mappings are applied as they appear in the **folder-map**.
-> Supported backends: imap, maildir.
+> Supported backends: imap, maildir, notmuch.
+
+> For the notmuch backend, the folder-map applies to physical maildir
+> directories. Query-map and dynamic query folders are not affected. If a
+> folder-map display name collides with a query-map or dynamic query folder
+> name, only one entry appears in the folder list: the directory store
+> maps names to entries and the last Directory message for a given name
+> overwrites earlier ones.
 
 > Note that other account options such as **archive**, **default**, **copy-to**,
 > **postpone**, **folders**, **folders-exclude**, **folders-sort** need to be
@@ -332,6 +335,7 @@ Note that many of these configuration options are written for you, such as
 - [aerc-imap(5)](/reference/aerc-imap.5/)
 - [aerc-jmap(5)](/reference/aerc-jmap.5/)
 - [aerc-maildir(5)](/reference/aerc-maildir.5/)
+- `aerc-mbox(5)`
 - [aerc-notmuch(5)](/reference/aerc-notmuch.5/)
 
 **source-cred-cmd** = *<command>*
@@ -385,4 +389,4 @@ Note that many of these configuration options are written for you, such as
 
 [aerc(1)](/reference/aerc.1/) [aerc-config(5)](/reference/aerc-config.5/) [aerc-imap(5)](/reference/aerc-imap.5/) [aerc-jmap(5)](/reference/aerc-jmap.5/) [aerc-maildir(5)](/reference/aerc-maildir.5/)
 
-[aerc-notmuch(5)](/reference/aerc-notmuch.5/) [aerc-sendmail(5)](/reference/aerc-sendmail.5/) [aerc-smtp(5)](/reference/aerc-smtp.5/)
+`aerc-mbox(5)` [aerc-notmuch(5)](/reference/aerc-notmuch.5/) [aerc-sendmail(5)](/reference/aerc-sendmail.5/) [aerc-smtp(5)](/reference/aerc-smtp.5/)

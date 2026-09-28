@@ -7,12 +7,7 @@ sidebar:
   badge:
     text: man
     variant: note
-# Auto-generated from upstream aerc 0.21.0
 ---
-
-:::tip[aerc 0.21.0]
-This reference tracks **aerc 0.21.0**. [View upstream source](https://git.sr.ht/~rjarry/aerc/tree/master/item/doc).
-:::
 
 :::note[Auto-generated reference]
 This page is auto-generated from the upstream aerc man pages. To suggest changes, submit patches to the [aerc mailing list](https://lists.sr.ht/~rjarry/aerc-devel).
@@ -100,7 +95,7 @@ options are available:
 > Path to the maildir account relative to the mail root. Only used when
 > **enable-maildir** is set to *true*.
 
-> This can be used to have a single notmuch database, with a suitable
+> This can be used to have a single notmuch database, with a suitably
 > prepared maildir store, usable from multiple conceptually different
 > aerc accounts.
 
