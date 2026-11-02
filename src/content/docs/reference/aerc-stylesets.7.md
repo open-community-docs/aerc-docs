@@ -7,12 +7,7 @@ sidebar:
   badge:
     text: man
     variant: note
-# Auto-generated from upstream aerc 0.21.0
 ---
-
-:::tip[aerc 0.21.0]
-This reference tracks **aerc 0.21.0**. [View upstream source](https://git.sr.ht/~rjarry/aerc/tree/master/item/doc).
-:::
 
 :::note[Auto-generated reference]
 This page is auto-generated from the upstream aerc man pages. To suggest changes, submit patches to the [aerc mailing list](https://lists.sr.ht/~rjarry/aerc-devel).
@@ -143,6 +138,9 @@ styling.
 | **selector_default** | The default style for the selector ui element. |
 | **selector_focused** | The focused item in a selector ui element. |
 | **selector_chooser** | The item chooser in a selector ui element. |
+| **keyhint_default** | The default style for the keyhint popup background. |
+| **keyhint_key** | The style for the key column in the keyhint popup. |
+| **keyhint_desc** | The style for the description column in the keyhint popup. |
 
 These next style objects only affect the built-in **colorize** filter and must be
 declared under a **[viewer]** section of the styleset file.
@@ -163,6 +161,7 @@ declared under a **[viewer]** section of the styleset file.
 | **quote_3** | Third level quoted text. |
 | **quote_4** | Fourth level quoted text. |
 | **quote_x** | Above fourth level quoted text. |
+| **code** | Code blocks fenced by ``` and inline `code`. |
 
 User defined styles can be used to style arbitrary strings in go-templates (see
 *.Style* in [aerc-templates(7)](/reference/aerc-templates.7/)). User styles must be defined in the *[user]*
@@ -287,7 +286,7 @@ syntax is as follows:
 
 If _<header_value>* starts with a tilde character *~_, it will be interpreted as
 a regular expression. If you are writing regular expressions that try to match
-with *.* or *\.* you need to wrap like this *~/<expression>/*.
+with *.* or *\\.* you need to wrap like this *~/<expression>/*.
 
 _<header>,<header_value>_ can be specified multiple times to narrow down matches
 to more than one email header value. In that case, all given headers must match
@@ -302,7 +301,7 @@ msglist\*.X-Sourcehut-Patchset-Update,REJECTED.fg = red
 "msglist_*.Subject,~^(\\[[\w-]+\]\\s*)?\\[(RFC )?PATCH.fg" = #ffffaf
 "msglist_*.Subject,~^(\\[[\w-]+\]\\s*)?\\[(RFC )?PATCH.selected.fg" = #ffffaf
 "msglist_*.From,~^Bob.Subject,~^(\\[[\w-]+\]\\s*)?\\[(RFC )?PATCH.selected.fg" = #ffffaf
-"msglist_*.List-ID,~/lists\.sr\.ht/selected.fg" = blue
+"msglist_*.List-ID,~/lists\\.sr\\.ht/selected.fg" = blue
 ```
 
 When a dynamic style is matched to an email header, it will be used in priority
@@ -408,6 +407,7 @@ quote_4.fg = 4
 quote_4.dim = true
 quote_x.fg = 5
 quote_x.dim = true
+code = 5
 ```
 
 You can choose either to reset everything (except in the **[viewer]** section) by
