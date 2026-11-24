@@ -4,7 +4,11 @@ import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://aerc-docs.org',
+	site: 'https://aerc-docs.com',
+	// The section folder has no page of its own; without this it is a 403.
+	redirects: {
+		'/getting-started': '/getting-started/installation/',
+	},
 	integrations: [
 		starlight({
 			title: 'aerc docs',
