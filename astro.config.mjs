@@ -5,9 +5,11 @@ import starlight from '@astrojs/starlight';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://aerc-docs.com',
-	// The section folder has no page of its own; without this it is a 403.
+	// These section folders have no index page; without a redirect nginx returns 403.
 	redirects: {
 		'/getting-started': '/getting-started/installation/',
+		'/guides': '/guides/maildir-mbsync/',
+		'/reference': '/reference/aerc.1/',
 	},
 	integrations: [
 		starlight({
